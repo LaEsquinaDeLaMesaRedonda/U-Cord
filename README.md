@@ -10,7 +10,7 @@
 ***
 <div>
    <h2> Resumen</h2>
-<p align="justify"> La idea del proyeto es crear una plataforma web que permita la comunicación entre usuarios en tiempo real.
+<p align="justify"> La idea del proyecto es crear una plataforma web que permita la comunicación entre usuarios en tiempo real.
 Al tener un objetivo netamente educativo un requisito principal para poder registrarse es el poseer un correo valido con un dominio terminado en edu.co (Para esta primera etapa del proyecto solo se aceptara @mail.escuelaing.edu.co y @escuelaing.edu.co).
 Preguntando en un primer momento si el usuario es profesor o estudiante, creando un perfil con diferentes caracteristicas según sea el caso.
 </p>
