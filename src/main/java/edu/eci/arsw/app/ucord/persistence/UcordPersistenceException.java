@@ -1,5 +1,5 @@
 package edu.eci.arsw.app.ucord.persistence;
 
-public class UcordPersistenceException {
+public class UcordPersistenceException extends Exception {
     
 }
