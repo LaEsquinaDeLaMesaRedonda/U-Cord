@@ -14,18 +14,20 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String contraseña;
+    private String url;
 
     private List<Decanatura> programa;
 
     public Usuario(){
     }
 
-    public Usuario(Integer idPersona, String correo, String nombre, String apellido, String contraseña){
+    public Usuario(Integer idPersona, String correo, String nombre, String apellido, String contraseña, String url){
         this.idPersona =  idPersona;
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contraseña = contraseña;
+        this.url = url;
     }
 
     public List<Decanatura> getPrograma() {
@@ -76,5 +78,12 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }
 
