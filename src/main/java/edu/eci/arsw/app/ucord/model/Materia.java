@@ -11,16 +11,18 @@ import java.util.List;
 public class Materia {
 
     private String sigla;
-    private String nomnbre;
+    private String nombre;
     private Integer creditos;
     private List<Materia> prerequisitos;
+    private Decanatura decanatura;
 
     public Materia() {
     }
-    public Materia(String sigla, String nomnbre, Integer creditos) {
+    public Materia(String sigla, String nombre, Integer creditos, Decanatura decanatura) {
         this.sigla = sigla;
-        this.nomnbre = nomnbre;
+        this.nombre = nombre;
         this.creditos = creditos;
+        this.decanatura = decanatura;
     }
 
     public String getSigla() {
@@ -31,12 +33,12 @@ public class Materia {
         this.sigla = sigla;
     }
 
-    public String getNomnbre() {
-        return nomnbre;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNomnbre(String nomnbre) {
-        this.nomnbre = nomnbre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Integer getCreditos() {
