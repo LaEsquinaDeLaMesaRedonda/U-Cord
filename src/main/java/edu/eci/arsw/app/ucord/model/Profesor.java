@@ -8,7 +8,7 @@ import java.util.List;
  * @author Iván Camilo Rincón Saavedra
  * @version 9/22/2021
  */
-public class Profesor {
+public class Profesor extends Usuario{
     private List<Materia> materiasAdictar;
     public Profesor() {
     }

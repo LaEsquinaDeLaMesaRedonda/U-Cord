@@ -3,7 +3,7 @@ package edu.eci.arsw.app.ucord.model;
 import java.util.List;
 import java.util.Map;
 
-public class Estudiante extends Persona {
+public class Estudiante extends Usuario {
     private Integer semestre;
     private List<Materia> cursando;
     private Map<Materia , Integer> aprobadas;

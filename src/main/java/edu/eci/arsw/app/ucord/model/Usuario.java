@@ -8,7 +8,7 @@ import java.util.List;
  * @author Iván Camilo Rincón Saavedra
  * @version 9/22/2021
  */
-public class Persona {
+public class Usuario {
     private Integer idPersona;
     private String correo;
     private String nombre;
@@ -17,10 +17,10 @@ public class Persona {
 
     private List<Decanatura> programa;
 
-    public Persona(){
+    public Usuario(){
     }
 
-    public Persona(Integer idPersona, String correo, String nombre, String apellido, String contraseña){
+    public Usuario(Integer idPersona, String correo, String nombre, String apellido, String contraseña){
         this.idPersona =  idPersona;
         this.correo = correo;
         this.nombre = nombre;

@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/U-cord")
-public class UserAPIController {
+public class UsuarioAPIController {
 }
