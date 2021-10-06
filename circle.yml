@@ -5,5 +5,5 @@ machine:
 deployment:
   staging:
     branch: main
-    heroku: 
+    heroku:  
       appname: u-cord
