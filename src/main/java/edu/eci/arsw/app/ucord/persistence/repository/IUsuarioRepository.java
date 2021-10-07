@@ -1,4 +1,4 @@
-package edu.eci.arsw.app.ucord.repository;
+package edu.eci.arsw.app.ucord.persistence.repository;
 
 import edu.eci.arsw.app.ucord.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
