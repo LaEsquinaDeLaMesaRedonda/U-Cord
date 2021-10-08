@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 9/28/2021
  */
 @RestController
-@RequestMapping(value = "/U-cord")
+@RequestMapping(value = "/U-cord/user")
 public class UsuarioAPIController {
+
+  public UsuarioAPIController() {}
 }

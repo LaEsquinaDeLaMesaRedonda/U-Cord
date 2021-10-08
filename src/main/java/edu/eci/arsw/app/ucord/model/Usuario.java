@@ -2,13 +2,20 @@ package edu.eci.arsw.app.ucord.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author Ana Gabriela Silva
  * @author Leonardo Galeano
  * @author Iván Camilo Rincón Saavedra
  * @version 9/22/2021
  */
+@Table(name = "usuarios")
+@Entity //Etiqueta necesaria para indentificar que pertenece a una tabla dentro de postgresql
 public class Usuario {
+    @Id //Etiqueta necesaria para identificar la llave primaria de la tabla
     private Integer idPersona;
     private String correo;
     private String nombre;
@@ -16,7 +23,7 @@ public class Usuario {
     private String contraseña;
     private String url;
 
-    private List<Decanatura> programa;
+    //private List<Decanatura> programa; // => Si hay un campo aqui que no exista en la base de datos, va tirar error
 
     public Usuario(){
     }
@@ -30,13 +37,13 @@ public class Usuario {
         this.url = url;
     }
 
-    public List<Decanatura> getPrograma() {
-        return programa;
-    }
+    // public List<Decanatura> getPrograma() {
+    //     return programa;
+    // }
 
-    public void setPrograma(List<Decanatura> programa) {
-        this.programa = programa;
-    }
+    // public void setPrograma(List<Decanatura> programa) {
+    //     this.programa = programa;
+    // }
 
     public Integer getIdPersona() {
         return idPersona;
@@ -85,5 +92,12 @@ public class Usuario {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario [apellido=" + apellido + ", contraseña=" + contraseña + ", correo=" + correo + ", idPersona="
+                + idPersona + ", nombre=" + nombre + "]";//, programa=" + programa + ", url=" + url + "]";
+    }
+    
 }
 

@@ -2,13 +2,19 @@ package edu.eci.arsw.app.ucord.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import edu.eci.arsw.app.ucord.model.Decanatura;
 import edu.eci.arsw.app.ucord.model.Materia;
 import edu.eci.arsw.app.ucord.model.Profesor;
 import edu.eci.arsw.app.ucord.persistence.UcordPersistenceException;
 import edu.eci.arsw.app.ucord.service.IDecanaturaService;
 
+@Service //Etiqueta necesaria para detectar que es un componente de servicios
 public class DecanaturaService implements IDecanaturaService {
+
+    //Absolutamente todo debe llevar un constructor vacio
+    public DecanaturaService(){}
    
     @Override
     public List<Decanatura> getDecanaturas() {
