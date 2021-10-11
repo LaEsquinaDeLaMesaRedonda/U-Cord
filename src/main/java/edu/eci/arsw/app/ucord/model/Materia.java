@@ -1,6 +1,8 @@
 package edu.eci.arsw.app.ucord.model;
 
-import java.util.List;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Ana Gabriela Silva
@@ -8,21 +10,37 @@ import java.util.List;
  * @author Iván Camilo Rincón Saavedra
  * @version 9/22/2021
  */
+
+@Table(name = "Materias")
+@Entity
 public class Materia {
 
+    @Id
+    @Column (name="sigla", nullable = false)
     private String sigla;
-    private String nombre;
-    private Integer creditos;
-    private List<Materia> prerequisitos;
-    private Decanatura decanatura;
 
-    public Materia() {
-    }
-    public Materia(String sigla, String nombre, Integer creditos, Decanatura decanatura) {
+    @Column (name="nombre", nullable = false)
+    private String nombre;
+
+    @Column (name="creditos", nullable = false)
+    private Integer creditos;
+
+    @Column (name = "idDecanatura")
+    private Integer idDecanatura;
+
+    @ManyToMany(mappedBy = "Profesor", fetch = FetchType.LAZY)
+    private Set<Profesor> profesores = new HashSet<>();
+
+    @ManyToMany(mappedBy = "Estudiante", fetch = FetchType.LAZY)
+    private Set<Estudiante> estudiantes = new HashSet<>();
+
+    public Materia(){}
+
+    public Materia(String sigla, String nombre, Integer creditos, Integer idDecanatura) {
         this.sigla = sigla;
         this.nombre = nombre;
         this.creditos = creditos;
-        this.decanatura = decanatura;
+        this.idDecanatura = idDecanatura;
     }
 
     public String getSigla() {
@@ -49,11 +67,7 @@ public class Materia {
         this.creditos = creditos;
     }
 
-    public List<Materia> getPrerequisitos() {
-        return prerequisitos;
-    }
+    public Integer getIdDecanatura() {return idDecanatura;}
 
-    public void setPrerequisitos(List<Materia> prerequisitos) {
-        this.prerequisitos = prerequisitos;
-    }
+    public void setIdDecanatura(Integer idDecanatura) {this.idDecanatura = idDecanatura;}
 }
