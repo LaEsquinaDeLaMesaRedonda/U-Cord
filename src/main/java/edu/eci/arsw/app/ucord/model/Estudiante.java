@@ -23,6 +23,16 @@ public class Estudiante extends Usuario {
             })
     private Set<Materia> cursando = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "materiasAprobadas",
+            joinColumns = {
+                    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
+            })
+    private Set<Materia> aprobadas = new HashSet<>();
+
 
     public Estudiante(){
     }

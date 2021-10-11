@@ -15,6 +15,9 @@ import java.util.Set;
 @Table(name = "profesores")
 @PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
 public class Profesor extends Usuario{
+    @OneToOne
+    @JoinColumn(name = "idDecanatura", updatable = false, nullable = false)
+    private Decanatura decanatura;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "profesorMateria",

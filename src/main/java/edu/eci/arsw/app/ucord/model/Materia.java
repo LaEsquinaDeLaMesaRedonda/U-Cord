@@ -25,9 +25,9 @@ public class Materia {
     @Column (name="creditos", nullable = false)
     private Integer creditos;
 
-    @Column (name = "idDecanatura")
-    private Integer idDecanatura;
-
+    @ManyToOne
+    @JoinColumn(name = "idDecanatura", nullable = false)
+    private Decanatura decanatura;
 
     @ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
     private Set<Profesor> profesores = new HashSet<>();
@@ -35,13 +35,15 @@ public class Materia {
     @ManyToMany(mappedBy = "cursando", fetch = FetchType.LAZY)
     private Set<Estudiante> estudiantes = new HashSet<>();
 
+    @ManyToMany(mappedBy = "aprobadas", fetch = FetchType.LAZY)
+    private Set<Estudiante> estudiantesAprobados = new HashSet<>();
+
     public Materia(){}
 
-    public Materia(String sigla, String nombre, Integer creditos, Integer idDecanatura) {
+    public Materia(String sigla, String nombre, Integer creditos) {
         this.sigla = sigla;
         this.nombre = nombre;
         this.creditos = creditos;
-        this.idDecanatura = idDecanatura;
     }
 
     public String getSigla() {
@@ -68,7 +70,4 @@ public class Materia {
         this.creditos = creditos;
     }
 
-    public Integer getIdDecanatura() {return idDecanatura;}
-
-    public void setIdDecanatura(Integer idDecanatura) {this.idDecanatura = idDecanatura;}
 }
