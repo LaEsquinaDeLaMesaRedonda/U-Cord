@@ -38,6 +38,18 @@ public class Materia {
     @ManyToMany(mappedBy = "aprobadas", fetch = FetchType.LAZY)
     private Set<Estudiante> estudiantesAprobados = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "requisitosMaterias",
+    joinColumns = @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla"),
+    inverseJoinColumns = @JoinColumn(name = "siglaRequisito", referencedColumnName = "sigla"))
+    private Set<Materia> requisitos;
+
+    @ManyToMany
+    @JoinTable(name = "requisitosMaterias",
+    joinColumns = @JoinColumn(name = "siglaRequisito"),
+    inverseJoinColumns = @JoinColumn(name = "siglaMateria"))
+    private Set<Materia> requisitode;
+
     public Materia(){}
 
     public Materia(String sigla, String nombre, Integer creditos) {
@@ -70,4 +82,51 @@ public class Materia {
         this.creditos = creditos;
     }
 
+    public Decanatura getDecanatura() {
+        return decanatura;
+    }
+
+    public void setDecanatura(Decanatura decanatura) {
+        this.decanatura = decanatura;
+    }
+
+    public Set<Profesor> getProfesores() {
+        return profesores;
+    }
+
+    public void setProfesores(Set<Profesor> profesores) {
+        this.profesores = profesores;
+    }
+
+    public Set<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public void setEstudiantes(Set<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+
+    public Set<Estudiante> getEstudiantesAprobados() {
+        return estudiantesAprobados;
+    }
+
+    public void setEstudiantesAprobados(Set<Estudiante> estudiantesAprobados) {
+        this.estudiantesAprobados = estudiantesAprobados;
+    }
+
+    public Set<Materia> getRequisitos() {
+        return requisitos;
+    }
+
+    public void setRequisitos(Set<Materia> requisitos) {
+        this.requisitos = requisitos;
+    }
+
+    public Set<Materia> getRequisitode() {
+        return requisitode;
+    }
+
+    public void setRequisitode(Set<Materia> requisitode) {
+        this.requisitode = requisitode;
+    }
 }
