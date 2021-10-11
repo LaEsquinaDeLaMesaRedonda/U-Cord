@@ -20,8 +20,8 @@ public interface IUsuarioService {
     Usuario getUsuarioPorId( Integer id ) throws UCordServicesException;
 
     //PUT
-    void actualizarFotoDeUsuario( String correo, String url);
+    void actualizarFotoDeUsuario( String correo, String url) throws UCordServicesException;
 
-    void actualizarContraseñaDeUsuario( String correo, String contraseña );
+    void actualizarContraseñaDeUsuario( String correo, String contraseña ) throws UCordServicesException;
 
 }
