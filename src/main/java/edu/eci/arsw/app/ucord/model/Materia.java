@@ -11,8 +11,8 @@ import java.util.Set;
  * @version 9/22/2021
  */
 
-@Table(name = "Materias")
 @Entity
+@Table(name = "materias")
 public class Materia {
 
     @Id
@@ -28,10 +28,11 @@ public class Materia {
     @Column (name = "idDecanatura")
     private Integer idDecanatura;
 
-    @ManyToMany(mappedBy = "Profesor", fetch = FetchType.LAZY)
+
+    @ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
     private Set<Profesor> profesores = new HashSet<>();
 
-    @ManyToMany(mappedBy = "Estudiante", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "cursando", fetch = FetchType.LAZY)
     private Set<Estudiante> estudiantes = new HashSet<>();
 
     public Materia(){}

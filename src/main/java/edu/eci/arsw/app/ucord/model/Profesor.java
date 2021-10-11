@@ -2,7 +2,6 @@ package edu.eci.arsw.app.ucord.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -12,14 +11,15 @@ import java.util.Set;
  * @version 9/22/2021
  */
 
-@Table(name = "Profesores")
 @Entity
+@Table(name = "profesores")
+@PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
 public class Profesor extends Usuario{
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "profesorMateria",
     joinColumns = {
-            @JoinColumn(name = "idProfesor", referencedColumnName = "id", nullable = false, updatable = false)
+            @JoinColumn(name = "idProfesor", referencedColumnName = "idUsuario", nullable = false, updatable = false)
     },
     inverseJoinColumns = {
             @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)

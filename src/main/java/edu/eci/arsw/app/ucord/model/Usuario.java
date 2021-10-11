@@ -1,11 +1,9 @@
 package edu.eci.arsw.app.ucord.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author Ana Gabriela Silva
@@ -14,13 +12,14 @@ import javax.persistence.Table;
  * @version 9/22/2021
  */
 
-@Table(name = "usuarios")
 @Entity     //Etiqueta necesaria para indentificar que pertenece a una tabla dentro de postgresql
-public class Usuario {
+@Table(name = "usuarios")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Usuario implements Serializable {
 
     @Id     //Etiqueta necesaria para identificar la llave primaria de la tabla
-    @Column (name="id", nullable = false)
-    private Integer idPersona;
+    @Column (name="idUsuario", nullable = false)
+    private Integer idUsuario;
 
     @Column (name="correo", nullable = false)
     private String correo;
@@ -40,8 +39,8 @@ public class Usuario {
     public Usuario(){
     }
 
-    public Usuario(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url, int idDecanatura){
-        this.idPersona =  idPersona;
+    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña, String url, int idDecanatura){
+        this.idUsuario =  idUsuario;
         this.correo = correo;
         this.nombreCompleto = nombreCompleto;
         this.contraseña = contraseña;
@@ -49,12 +48,12 @@ public class Usuario {
         this.idDecanatura = idDecanatura;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombreCompleto() {return nombreCompleto;}
@@ -91,8 +90,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [nombre=" + nombreCompleto + ", contraseña=" + contraseña + ", correo=" + correo + ", idPersona="
-                + idPersona + "decanatura="+ idDecanatura + "]";
+        return "Usuario [nombre=" + nombreCompleto + ", contraseña=" + contraseña + ", correo=" + correo + ", idUsuario="
+                + idUsuario + "decanatura="+ idDecanatura + "]";
     }
 }
 

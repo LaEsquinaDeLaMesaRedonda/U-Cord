@@ -2,29 +2,27 @@ package edu.eci.arsw.app.ucord.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-@Table (name = "Estudiantes")
 @Entity
+@Table(name = "estudiantes")
+@PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
 public class Estudiante extends Usuario {
 
     @Column(name = "semestre")
     private Integer semestre;
 
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "cursandoMaterias",
+    @JoinTable(name = "cursando",
             joinColumns = {
-                    @JoinColumn(name = "idEstudiante", referencedColumnName = "id", nullable = false, updatable = false)
+                    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario", nullable = false, updatable = false)
             },
             inverseJoinColumns = {
                     @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
             })
     private Set<Materia> cursando = new HashSet<>();
 
-
-    //private Map<Materia , Integer> aprobadas;
 
     public Estudiante(){
     }
@@ -37,4 +35,11 @@ public class Estudiante extends Usuario {
         this.semestre = semestre;
     }
 
+    public Set<Materia> getCursando() {
+        return cursando;
+    }
+
+    public void setCursando(Set<Materia> cursando) {
+        this.cursando = cursando;
+    }
 }
