@@ -8,14 +8,15 @@ import java.util.List;
 
 public interface IMateriaService{
 
-    void agregarMateria(String sigla, String nombre, Integer creditos, Decanatura decanatura ) throws UcordPersistenceException;
+    void agregarMateria(Materia materia) throws UCordServicesException;
 
-    List<Materia> getMaterias() throws UcordPersistenceException;
+    void agregarPrerequisito(Materia prerequisito, Integer idMateria) throws UCordServicesException;
 
-    void agregarPrerequisito(Materia materia, List<Materia> requisitos) throws UcordPersistenceException;
+    List<Materia> getMaterias() throws UCordServicesException;
 
-    List<Materia> getPrerequisitos(Materia materia) throws UcordPersistenceException;
+    List<Materia> getPrerequisitos(String siglas) throws UCordServicesException;
 
-    List<Materia> getMateriasPorDecanatura(Decanatura decanatura) throws UcordPersistenceException;
+    List<Materia> getMateriasPorDecanatura(Integer idDecanatura) throws UCordServicesException;
 
+    List<Materia> getMateriasPorCreditos( Integer creditos) throws UCordServicesException;
 }

@@ -14,23 +14,24 @@ import java.util.Set;
 @Entity
 @Table(name = "profesores")
 @PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
-public class Profesor extends Usuario{
+public class Profesor extends Usuario {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "profesorMateria",
-    joinColumns = {
-            @JoinColumn(name = "idProfesor", referencedColumnName = "idUsuario", nullable = false, updatable = false)
-    },
-    inverseJoinColumns = {
-            @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
-    })
+            joinColumns = {
+                    @JoinColumn(name = "idProfesor", referencedColumnName = "idUsuario", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
+            })
     private Set<Materia> materias = new HashSet<>();
 
     public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url) {
         super(idPersona, correo, nombreCompleto, contraseña, url);
     }
 
-    public Profesor(){}
+    public Profesor() {
+    }
 
     public Set<Materia> getMaterias() {return materias;}
 

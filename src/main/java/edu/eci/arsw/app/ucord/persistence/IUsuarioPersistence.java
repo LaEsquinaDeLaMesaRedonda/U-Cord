@@ -9,6 +9,7 @@ import java.util.List;
  * @author Iván Camilo Rincón Saavedra
  * @version 9/28/2021
  */
+
 public interface IUsuarioPersistence {
     void guardarUsuario(Usuario usuario) throws UcordPersistenceException;
 

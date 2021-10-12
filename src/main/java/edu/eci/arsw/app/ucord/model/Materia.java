@@ -3,7 +3,6 @@ package edu.eci.arsw.app.ucord.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -114,9 +113,7 @@ public class Materia {
         return estudiantesAprobados;
     }
 
-    public void setEstudiantesAprobados(Set<Estudiante> estudiantesAprobados) {
-        this.estudiantesAprobados = estudiantesAprobados;
-    }
+    public void setEstudiantesAprobados(Set<Estudiante> estudiantesAprobados) {this.estudiantesAprobados = estudiantesAprobados;}
 
     public Set<Materia> getRequisitos() {
         return requisitos;

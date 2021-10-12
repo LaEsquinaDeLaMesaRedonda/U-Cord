@@ -37,19 +37,15 @@ public class Estudiante extends Usuario {
     public Estudiante(){
     }
 
-    public Integer getSemestre() {
-        return semestre;
-    }
+    public Integer getSemestre() {return semestre;}
 
-    public void setSemestre(Integer semestre) {
-        this.semestre = semestre;
-    }
+    public void setSemestre(Integer semestre) {this.semestre = semestre;}
 
-    public Set<Materia> getCursando() {
-        return cursando;
-    }
+    public Set<Materia> getCursando() {return cursando;}
 
-    public void setCursando(Set<Materia> cursando) {
-        this.cursando = cursando;
-    }
+    public void setCursando(Set<Materia> cursando) {this.cursando = cursando;}
+
+    public Set<Materia> getAprobadas() {return aprobadas;}
+
+    public void setAprobadas(Set<Materia> aprobadas) {this.aprobadas = aprobadas;}
 }

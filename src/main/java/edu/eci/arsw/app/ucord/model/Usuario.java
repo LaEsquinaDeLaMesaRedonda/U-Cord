@@ -68,9 +68,7 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
+    public String getContraseña() {return contraseña;}
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
