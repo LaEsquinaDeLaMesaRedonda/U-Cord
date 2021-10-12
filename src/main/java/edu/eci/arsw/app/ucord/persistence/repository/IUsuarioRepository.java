@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository //Springboot necesita saber que esto es un repositorio
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
+
 }
