@@ -30,7 +30,7 @@ public class Profesor extends Usuario{
     private Set<Materia> materias = new HashSet<>();
 
     public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url, int idDecanatura) {
-        super(idPersona, correo, nombreCompleto, contraseña, url, idDecanatura);
+        super(idPersona, correo, nombreCompleto, contraseña, url);
     }
 
     public Profesor(){}

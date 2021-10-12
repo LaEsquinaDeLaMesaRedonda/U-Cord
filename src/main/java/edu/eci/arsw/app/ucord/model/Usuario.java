@@ -1,8 +1,8 @@
 package edu.eci.arsw.app.ucord.model;
 
-import java.io.Serializable;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -15,10 +15,10 @@ import javax.persistence.*;
 @Entity     //Etiqueta necesaria para indentificar que pertenece a una tabla dentro de postgresql
 @Table(name = "usuarios")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable {
+public class Usuario {
 
     @Id     //Etiqueta necesaria para identificar la llave primaria de la tabla
-    @Column (name="idUsuario", nullable = false)
+    @Column (name="idUsuario", nullable = true)
     private Integer idUsuario;
 
     @Column (name="correo", nullable = false)
@@ -33,19 +33,19 @@ public class Usuario implements Serializable {
     @Column (name="url")
     private String url;
 
-    @Column (name="idDecanatura", nullable = false)
-    private int idDecanatura;
+    @ManyToOne
+    @JoinColumn(name = "idDecanatura", nullable = false)
+    private Decanatura programa;
 
     public Usuario(){
     }
 
-    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña, String url, int idDecanatura){
+    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña, String url){
         this.idUsuario =  idUsuario;
         this.correo = correo;
         this.nombreCompleto = nombreCompleto;
         this.contraseña = contraseña;
         this.url = url;
-        this.idDecanatura = idDecanatura;
     }
 
     public Integer getIdUsuario() {
@@ -84,14 +84,18 @@ public class Usuario implements Serializable {
         this.url = url;
     }
 
-    public int getIdDecanatura() {return idDecanatura;}
+    public Decanatura getPrograma() {
+        return programa;
+    }
 
-    public void setIdDecanatura(int idDecanatura) {this.idDecanatura = idDecanatura;}
+    public void setPrograma(Decanatura programa) {
+        this.programa = programa;
+    }
 
     @Override
     public String toString() {
         return "Usuario [nombre=" + nombreCompleto + ", contraseña=" + contraseña + ", correo=" + correo + ", idUsuario="
-                + idUsuario + "decanatura="+ idDecanatura + "]";
+                + idUsuario + "decanatura="+ programa.getNombre() + "]";
     }
 }
 

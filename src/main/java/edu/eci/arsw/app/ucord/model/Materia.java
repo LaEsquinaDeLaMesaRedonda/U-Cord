@@ -1,6 +1,7 @@
 package edu.eci.arsw.app.ucord.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class Materia {
 
     @ManyToOne
     @JoinColumn(name = "idDecanatura", nullable = false)
-    private Decanatura decanatura;
+    private Decanatura decanaturaM;
 
     @ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
     private Set<Profesor> profesores = new HashSet<>();
@@ -82,12 +83,12 @@ public class Materia {
         this.creditos = creditos;
     }
 
-    public Decanatura getDecanatura() {
-        return decanatura;
+    public Decanatura getDecanaturaM() {
+        return decanaturaM;
     }
 
-    public void setDecanatura(Decanatura decanatura) {
-        this.decanatura = decanatura;
+    public void setDecanaturaM(Decanatura decanaturaM) {
+        this.decanaturaM = decanaturaM;
     }
 
     public Set<Profesor> getProfesores() {

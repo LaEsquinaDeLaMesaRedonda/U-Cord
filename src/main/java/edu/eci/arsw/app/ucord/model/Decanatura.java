@@ -1,6 +1,9 @@
 package edu.eci.arsw.app.ucord.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -20,10 +23,11 @@ public class Decanatura {
     @Column (name="nombre", nullable = false)
     private String nombre;
 
-    @OneToOne(mappedBy = "decanatura", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "decanatura" )
     private Profesor decano;
 
-    @OneToMany(mappedBy="decanatura" )
+    @OneToMany(mappedBy="decanaturaM" ,cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
+    @JsonIgnore // here
     private List<Materia> materias;
 
     public Decanatura(){
