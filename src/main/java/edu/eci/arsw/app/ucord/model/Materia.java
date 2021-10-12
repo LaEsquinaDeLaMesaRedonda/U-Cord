@@ -1,5 +1,7 @@
 package edu.eci.arsw.app.ucord.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -83,6 +85,7 @@ public class Materia {
         this.creditos = creditos;
     }
 
+    @JsonBackReference
     public Decanatura getDecanaturaM() {
         return decanaturaM;
     }

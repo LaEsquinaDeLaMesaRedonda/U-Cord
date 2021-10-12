@@ -15,9 +15,6 @@ import java.util.Set;
 @Table(name = "profesores")
 @PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
 public class Profesor extends Usuario{
-    @OneToOne
-    @JoinColumn(name = "idDecanatura", updatable = false, nullable = false)
-    private Decanatura decanatura;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "profesorMateria",
@@ -29,7 +26,7 @@ public class Profesor extends Usuario{
     })
     private Set<Materia> materias = new HashSet<>();
 
-    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url, int idDecanatura) {
+    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url) {
         super(idPersona, correo, nombreCompleto, contraseña, url);
     }
 
