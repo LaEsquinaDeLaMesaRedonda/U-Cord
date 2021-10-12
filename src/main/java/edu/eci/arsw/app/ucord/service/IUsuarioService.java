@@ -2,6 +2,8 @@ package edu.eci.arsw.app.ucord.service;
 
 import edu.eci.arsw.app.ucord.model.Usuario;
 
+import java.util.List;
+
 /**
  * @author Ana Gabriela Silva
  * @author Leonardo Galeano
@@ -19,6 +21,7 @@ public interface IUsuarioService {
 
     Usuario getUsuarioPorId( Integer id ) throws UCordServicesException;
 
+    List<Usuario> getAllUsuarios() throws UCordServicesException;
     //PUT
     void actualizarFotoDeUsuario( String correo, String url) throws UCordServicesException;
 

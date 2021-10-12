@@ -1,7 +1,7 @@
 package edu.eci.arsw.app.ucord.persistence;
 
 import edu.eci.arsw.app.ucord.model.Usuario;
-import edu.eci.arsw.app.ucord.service.UCordServicesException;
+import java.util.List;
 
 /**
  * @author Ana Gabriela Silva
@@ -15,6 +15,8 @@ public interface IUsuarioPersistence {
     Usuario getUsuarioPorCorreo( String correo ) throws UcordPersistenceException;
 
     Usuario getUsuarioPorId( Integer id ) throws UcordPersistenceException;
+
+    List<Usuario> getAllUsuarios() throws UcordPersistenceException;
 
     void actualizarFotoDeUsuario( String correo, String url) throws UcordPersistenceException;
 

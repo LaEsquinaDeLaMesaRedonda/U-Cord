@@ -8,6 +8,8 @@ import edu.eci.arsw.app.ucord.service.UCordServicesException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Ana Gabriela Silva
  * @author Leonardo Galeano
@@ -43,6 +45,15 @@ public class UsuarioService implements IUsuarioService {
     public Usuario getUsuarioPorId(Integer id) throws UCordServicesException {
         try {
             return persistence.getUsuarioPorId(id);
+        } catch (UcordPersistenceException e) {
+            throw  new UCordServicesException( e.getMessage() );
+        }
+    }
+
+    @Override
+    public List<Usuario> getAllUsuarios() throws UCordServicesException {
+        try {
+            return persistence.getAllUsuarios();
         } catch (UcordPersistenceException e) {
             throw  new UCordServicesException( e.getMessage() );
         }
