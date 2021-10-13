@@ -62,4 +62,13 @@ public class MateriaService implements IMateriaService {
             throw new UCordServicesException(e.getMessage());
         }
     }
+
+    @Override
+    public List<Materia> getMateriaPorSiglas(String siglas) throws UCordServicesException {
+        try{
+            return persistence.getMateriaPorSiglas(siglas);
+        }catch(UcordPersistenceException e){
+            throw new UCordServicesException(e.getMessage());
+        }
+    }
 }

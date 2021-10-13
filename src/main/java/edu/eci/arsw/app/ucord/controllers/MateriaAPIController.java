@@ -1,6 +1,5 @@
 package edu.eci.arsw.app.ucord.controllers;
 
-import edu.eci.arsw.app.ucord.persistence.UcordPersistenceException;
 import edu.eci.arsw.app.ucord.service.IMateriaService;
 import edu.eci.arsw.app.ucord.service.UCordServicesException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +29,21 @@ public class MateriaAPIController {
         }
     }
 
-    @RequestMapping( path="/{idDecanatura}", method = RequestMethod.GET)
+    @RequestMapping( path="/decanatura/{idDecanatura}", method = RequestMethod.GET)
     public ResponseEntity<?> getMateriasPorDecanaturas(@PathVariable Integer idDecanatura){
         try {
             return new ResponseEntity<>(service.getMateriasPorDecanatura(idDecanatura), HttpStatus.CREATED);
         } catch (UCordServicesException e) {
+            Logger.getLogger(MateriaAPIController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping (path = "/siglas/{siglas}", method = RequestMethod.GET)
+    public ResponseEntity<?> getMateriaPorSiglas(@PathVariable String siglas){
+        try{
+            return new ResponseEntity<>(service.getMateriaPorSiglas(siglas), HttpStatus.CREATED);
+        }catch( UCordServicesException e){
             Logger.getLogger(MateriaAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }

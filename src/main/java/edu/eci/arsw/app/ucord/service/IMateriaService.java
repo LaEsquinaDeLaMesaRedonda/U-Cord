@@ -19,4 +19,6 @@ public interface IMateriaService{
     List<Materia> getMateriasPorDecanatura(Integer idDecanatura) throws UCordServicesException;
 
     List<Materia> getMateriasPorCreditos( Integer creditos) throws UCordServicesException;
+
+    List<Materia> getMateriaPorSiglas ( String siglas ) throws UCordServicesException;
 }

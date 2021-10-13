@@ -24,7 +24,7 @@ public interface IMateriaPersistence {
 
     List<Materia> getMateriaPorDecanatura (Integer idDecanatura) throws UcordPersistenceException;
 
-    Materia getMateriaPorSiglas (String siglas) throws UcordPersistenceException;
+    List<Materia> getMateriaPorSiglas (String siglas) throws UcordPersistenceException;
 
     List<Materia> getPreRequisitos (String siglas) throws UcordPersistenceException;
 

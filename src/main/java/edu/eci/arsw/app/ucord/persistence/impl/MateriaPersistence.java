@@ -62,8 +62,13 @@ public class MateriaPersistence implements IMateriaPersistence {
     }
 
     @Override
-    public Materia getMateriaPorSiglas(String siglas) throws UcordPersistenceException {
-        return null;
+    public List<Materia> getMateriaPorSiglas(String siglas) throws UcordPersistenceException {
+        Query query = entityManager.createNativeQuery("select * from materias where sigla = ?", Materia.class);
+        query.setParameter(1, siglas);
+        if (query.getResultList().size() == 0){
+            throw new UcordPersistenceException("No se encontraron materias con las siglas" + siglas + ".");
+        }
+        return query.getResultList();
     }
 
     @Override
