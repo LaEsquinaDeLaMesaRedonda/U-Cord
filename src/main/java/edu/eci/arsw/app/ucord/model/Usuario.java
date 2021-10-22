@@ -48,6 +48,13 @@ public class Usuario {
         this.programa = idDecanatura;
     }
 
+    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña ){
+        this.idUsuario =  idUsuario;
+        this.correo = correo;
+        this.nombreCompleto = nombreCompleto;
+        this.contraseña = contraseña;
+    }
+
 
     public Integer getIdUsuario() {
         return this.idUsuario;
