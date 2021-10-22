@@ -12,40 +12,17 @@ public class Estudiante extends Usuario {
     @Column(name = "semestre")
     private Integer semestre;
 
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "cursando",
-            joinColumns = {
-                    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
-            })
-    private Set<Materia> cursando = new HashSet<>();
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "materiasAprobadas",
-            joinColumns = {
-                    @JoinColumn(name = "idEstudiante", referencedColumnName = "idUsuario", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
-            })
-    private Set<Materia> aprobadas = new HashSet<>();
+    @Column(name ="idUsuario")
+    private Integer idUsuario;
 
 
     public Estudiante(){
     }
 
+    public Estudiante(Integer semestre){
+            this.semestre = semestre;
+}
     public Integer getSemestre() {return semestre;}
-
     public void setSemestre(Integer semestre) {this.semestre = semestre;}
 
-    public Set<Materia> getCursando() {return cursando;}
-
-    public void setCursando(Set<Materia> cursando) {this.cursando = cursando;}
-
-    public Set<Materia> getAprobadas() {return aprobadas;}
-
-    public void setAprobadas(Set<Materia> aprobadas) {this.aprobadas = aprobadas;}
 }

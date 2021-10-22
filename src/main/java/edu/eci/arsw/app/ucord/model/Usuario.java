@@ -33,67 +33,73 @@ public class Usuario {
     @Column (name="url")
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name = "idDecanatura", nullable = false)
-    private Decanatura programa;
+    @Column(name="IdDecanatura", nullable = true)
+    private Integer programa;
 
     public Usuario(){
     }
 
-    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña, String url){
+    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña){
         this.idUsuario =  idUsuario;
         this.correo = correo;
         this.nombreCompleto = nombreCompleto;
         this.contraseña = contraseña;
-        this.url = url;
     }
 
+
     public Integer getIdUsuario() {
-        return idUsuario;
+        return this.idUsuario;
     }
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public String getNombreCompleto() {return nombreCompleto;}
-
-    public void setNombreCompleto(String nombreCompleto) {this.nombreCompleto = nombreCompleto;}
-
     public String getCorreo() {
-        return correo;
+        return this.correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public String getContraseña() {return contraseña;}
+    public String getNombreCompleto() {
+        return this.nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public String getContraseña() {
+        return this.contraseña;
+    }
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
 
     public String getUrl() {
-        return url;
+        return this.url;
     }
 
     public void setUrl(String url) {
         this.url = url;
     }
 
-    public Decanatura getPrograma() {
-        return programa;
+    public Integer getPrograma() {
+        return this.programa;
     }
 
-    public void setPrograma(Decanatura programa) {
+    public void setPrograma(Integer programa) {
         this.programa = programa;
     }
+ 
 
     @Override
     public String toString() {
         return "Usuario [nombre=" + nombreCompleto + ", contraseña=" + contraseña + ", correo=" + correo + ", idUsuario="
-                + idUsuario + "decanatura="+ programa.getNombre() + "]";
+                + idUsuario + "decanatura="+ programa + "]";
     }
 }
 

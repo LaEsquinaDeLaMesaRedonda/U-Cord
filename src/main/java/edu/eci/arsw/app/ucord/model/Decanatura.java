@@ -24,9 +24,6 @@ public class Decanatura {
     @Column (name="nombre", nullable = false)
     private String nombre;
 
-    @OneToMany(mappedBy="decanaturaM" ,cascade = CascadeType.ALL ,fetch = FetchType.LAZY)
-    private List<Materia> materias;
-
     public Decanatura(){
 
     }
@@ -34,15 +31,6 @@ public class Decanatura {
     public Decanatura( Integer idDecanatura, String nombre ) {
         this.idDecanatura = idDecanatura;
         this.nombre = nombre;
-    }
-
-    @JsonManagedReference
-    public List<Materia> getMaterias() {
-        return materias;
-    }
-
-    public void setMaterias(List<Materia> materias) {
-        this.materias = materias;
     }
 
     public Integer getId() {

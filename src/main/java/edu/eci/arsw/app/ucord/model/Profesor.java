@@ -16,25 +16,25 @@ import java.util.Set;
 @PrimaryKeyJoinColumn( referencedColumnName = "idUsuario")
 public class Profesor extends Usuario {
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "profesorMateria",
-            joinColumns = {
-                    @JoinColumn(name = "idProfesor", referencedColumnName = "idUsuario", nullable = false, updatable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla", nullable = false, updatable = false)
-            })
-    private Set<Materia> materias = new HashSet<>();
+    @Column(name = "idUsuario")
+    private Integer idUsuario;
 
-    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url) {
-        super(idPersona, correo, nombreCompleto, contraseña, url);
+    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña) {
+        super(idPersona, correo, nombreCompleto, contraseña);
     }
 
     public Profesor() {
     }
 
-    public Set<Materia> getMaterias() {return materias;}
+    public Profesor(Integer idUsuario) {
+        this.idUsuario = idUsuario;}
 
-    public void setMaterias(Set<Materia> materias) {this.materias = materias;}
+    public Integer getIdUsuario() {
+        return this.idUsuario; }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;}
+
+
 
 }

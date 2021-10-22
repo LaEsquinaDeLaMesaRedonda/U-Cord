@@ -27,30 +27,8 @@ public class Materia {
     @Column (name="creditos", nullable = false)
     private Integer creditos;
 
-    @ManyToOne
-    @JoinColumn(name = "idDecanatura", nullable = false)
-    private Decanatura decanaturaM;
-
-    @ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
-    private Set<Profesor> profesores = new HashSet<>();
-
-    @ManyToMany(mappedBy = "cursando", fetch = FetchType.LAZY)
-    private Set<Estudiante> estudiantes = new HashSet<>();
-
-    @ManyToMany(mappedBy = "aprobadas", fetch = FetchType.LAZY)
-    private Set<Estudiante> estudiantesAprobados = new HashSet<>();
-
-    @ManyToMany
-    @JoinTable(name = "requisitosMaterias",
-    joinColumns = @JoinColumn(name = "siglaMateria", referencedColumnName = "sigla"),
-    inverseJoinColumns = @JoinColumn(name = "siglaRequisito", referencedColumnName = "sigla"))
-    private Set<Materia> requisitos;
-
-    @ManyToMany
-    @JoinTable(name = "requisitosMaterias",
-    joinColumns = @JoinColumn(name = "siglaRequisito"),
-    inverseJoinColumns = @JoinColumn(name = "siglaMateria"))
-    private Set<Materia> requisitode;
+    @Column (name="idDecanatura", nullable = true)
+    private Integer decanaturaM;
 
     public Materia(){}
 
@@ -60,8 +38,9 @@ public class Materia {
         this.creditos = creditos;
     }
 
+
     public String getSigla() {
-        return sigla;
+        return this.sigla;
     }
 
     public void setSigla(String sigla) {
@@ -69,7 +48,7 @@ public class Materia {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -77,57 +56,19 @@ public class Materia {
     }
 
     public Integer getCreditos() {
-        return creditos;
+        return this.creditos;
     }
 
     public void setCreditos(Integer creditos) {
         this.creditos = creditos;
     }
 
-    @JsonBackReference
-    public Decanatura getDecanaturaM() {
-        return decanaturaM;
+    public Integer getDecanaturaM() {
+        return this.decanaturaM;
     }
 
-    public void setDecanaturaM(Decanatura decanaturaM) {
+    public void setDecanaturaM(Integer decanaturaM) {
         this.decanaturaM = decanaturaM;
     }
-
-    public Set<Profesor> getProfesores() {
-        return profesores;
-    }
-
-    public void setProfesores(Set<Profesor> profesores) {
-        this.profesores = profesores;
-    }
-
-    public Set<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void setEstudiantes(Set<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
-
-    public Set<Estudiante> getEstudiantesAprobados() {
-        return estudiantesAprobados;
-    }
-
-    public void setEstudiantesAprobados(Set<Estudiante> estudiantesAprobados) {this.estudiantesAprobados = estudiantesAprobados;}
-
-    public Set<Materia> getRequisitos() {
-        return requisitos;
-    }
-
-    public void setRequisitos(Set<Materia> requisitos) {
-        this.requisitos = requisitos;
-    }
-
-    public Set<Materia> getRequisitode() {
-        return requisitode;
-    }
-
-    public void setRequisitode(Set<Materia> requisitode) {
-        this.requisitode = requisitode;
-    }
+    
 }
