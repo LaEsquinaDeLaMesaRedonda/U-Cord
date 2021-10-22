@@ -30,7 +30,7 @@ public class Usuario {
     @Column (name="password", nullable = false)
     private String contraseña;
 
-    @Column (name="url")
+    @Column (name="url" )
     private String url;
 
     @Column(name="IdDecanatura", nullable = true)
@@ -39,11 +39,13 @@ public class Usuario {
     public Usuario(){
     }
 
-    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña){
+    public Usuario(Integer idUsuario, String correo, String nombreCompleto, String contraseña, String url, Integer idDecanatura ){
         this.idUsuario =  idUsuario;
         this.correo = correo;
         this.nombreCompleto = nombreCompleto;
         this.contraseña = contraseña;
+        this.url = url;
+        this.programa = idDecanatura;
     }
 
 

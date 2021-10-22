@@ -33,7 +33,8 @@ public class UsuarioPersistence implements IUsuarioPersistence {
         try {
             usuarioRepository.save(usuario);
         } catch ( Exception exception ){
-            throw new UcordPersistenceException(UcordPersistenceException.FAILED_CREATING+" The User");
+//            throw new UcordPersistenceException(UcordPersistenceException.FAILED_CREATING+" The User");
+            throw new UcordPersistenceException(exception.getMessage());
         }
 
     }
