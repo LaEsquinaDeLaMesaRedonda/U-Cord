@@ -6,10 +6,7 @@ import edu.eci.arsw.app.ucord.service.UCordServicesException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +21,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(value = "/U-cord/decanaturas")
+@CrossOrigin( origins = "*" ) //es un protocolo estándar que define la interacción entre un navegador y un servidor para manejar de forma segura las solicitudes HTTP de origen cruzado.
 public class DecanaturaAPIController {
 
   @Autowired
