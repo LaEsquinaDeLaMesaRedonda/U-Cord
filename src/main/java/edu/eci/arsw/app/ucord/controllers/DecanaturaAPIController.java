@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 
 @RestController
-@RequestMapping(value = "/U-cord/decanatura")
+@RequestMapping(value = "/U-cord/decanaturas")
 public class DecanaturaAPIController {
 
   @Autowired

@@ -31,10 +31,15 @@ public class UsuarioPersistence implements IUsuarioPersistence {
     @Override
     public void guardarUsuario(Usuario usuario) throws UcordPersistenceException {
         try {
+            if ( usuarioRepository.findByCorreo( usuario.getCorreo() ) != null ) throw new UcordPersistenceException(UcordPersistenceException.USER_ALREADY_EXISTS);
+
             usuarioRepository.save(usuario);
-        } catch ( Exception exception ){
-//            throw new UcordPersistenceException(UcordPersistenceException.FAILED_CREATING+" The User");
-            throw new UcordPersistenceException(exception.getMessage());
+        }
+        catch (UcordPersistenceException persistenceException ){
+            throw persistenceException;
+        }
+        catch ( Exception exception ){
+            throw new UcordPersistenceException(UcordPersistenceException.FAILED_CREATING+" The User");
         }
 
     }
