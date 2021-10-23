@@ -19,8 +19,8 @@ public class Profesor extends Usuario {
     @Column(name = "idUsuario")
     private Integer idUsuario;
 
-    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña) {
-        super(idPersona, correo, nombreCompleto, contraseña);
+    public Profesor(Integer idPersona, String correo, String nombreCompleto, String contraseña, String url, Integer idDecanatura) {
+        super(idPersona, correo, nombreCompleto, contraseña, url, idDecanatura );
     }
 
     public Profesor() {

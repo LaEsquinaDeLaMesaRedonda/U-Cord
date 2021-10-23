@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping(value = "/U-cord/users")
-@CrossOrigin( origins = "*",  methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE}) //es un protocolo estándar que define la interacción entre un navegador y un servidor para manejar de forma segura las solicitudes HTTP de origen cruzado.
+@CrossOrigin( origins = "*" ) //es un protocolo estándar que define la interacción entre un navegador y un servidor para manejar de forma segura las solicitudes HTTP de origen cruzado.
 public class UsuarioAPIController {
 
   @Autowired
