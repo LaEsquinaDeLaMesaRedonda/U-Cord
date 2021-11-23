@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,24 +67,29 @@ public class UsuarioPersistence implements IUsuarioPersistence {
     }
 
     @Override
+    @Transactional
     public void actualizarFotoDeUsuario(String correo, String url) throws UcordPersistenceException{
         try{
             Query query = entityManager.createNativeQuery("UPDATE Usuarios SET url=? WHERE correo = ?");
             query.setParameter(1, url).setParameter(2, correo);
             query.executeUpdate();
+
         } catch ( Exception exception){
+            exception.printStackTrace();
             throw new UcordPersistenceException(UcordPersistenceException.FAILED_UPDATING+" User "+correo);
         }
     }
 
     @Override
+    @Transactional
     public void actualizarContraseñaDeUsuario(String correo, String contraseña) throws UcordPersistenceException{
         try{
-            Query query = entityManager.createNativeQuery("UPDATE Usuarios SET contraseña=? WHERE correo = ?");
+            Query query = entityManager.createNativeQuery("UPDATE Usuarios SET password=? WHERE correo=?");
             query.setParameter(1, contraseña);
             query.setParameter(2, correo);
             query.executeUpdate();
         } catch ( Exception exception){
+            exception.printStackTrace();
             throw new UcordPersistenceException(UcordPersistenceException.FAILED_UPDATING+" User "+correo);
         }
     }

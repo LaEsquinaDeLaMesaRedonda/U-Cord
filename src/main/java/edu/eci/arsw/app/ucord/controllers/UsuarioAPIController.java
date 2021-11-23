@@ -55,4 +55,26 @@ public class UsuarioAPIController {
       return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
   }
+
+  @RequestMapping( path = "/{correo}", method = RequestMethod.PUT)
+  public ResponseEntity<?> updatePictureByMail(@PathVariable String correo, @RequestBody String URL) {
+    try {
+      service.actualizarFotoDeUsuario(correo, URL);
+      return new ResponseEntity<>(HttpStatus.valueOf(202));
+    } catch ( UCordServicesException ex ) {
+      Logger.getLogger(UsuarioAPIController.class.getName()).log(Level.SEVERE, null, ex);
+      return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
+    }
+  }
+
+  @RequestMapping( path = "/{correo}/passwd", method = RequestMethod.PUT)
+  public ResponseEntity<?> updatePasswdByMail(@PathVariable String correo, @RequestBody String passwd) {
+    try {
+      service.actualizarContraseñaDeUsuario(correo, passwd);
+      return new ResponseEntity<>(HttpStatus.valueOf(202));
+    } catch ( UCordServicesException ex ) {
+      Logger.getLogger(UsuarioAPIController.class.getName()).log(Level.SEVERE, null, ex);
+      return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
+    }
+  }
 }
