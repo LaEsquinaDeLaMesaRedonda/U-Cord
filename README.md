@@ -33,7 +33,7 @@ mvn spring-boot:run
 <img style="height: 450px" src="https://github.com/LaEsquinaDeLaMesaRedonda/U-cord-Wiki/blob/main/img/ucord-mvnSpringBoot.jpg">
 
 ## Para más información
-Para conocer más sobre este proyecto, ingrese a [wiki U-Cord](https://github.com/LaEsquinaDeLaMesaRedonda/U-Cord/wiki)
+Para conocer más sobre este proyecto, ingrese a [wiki U-Cord](https://github.com/LaEsquinaDeLaMesaRedonda/U-cord-Wiki)
 
 ## Despliague Heroku
 
