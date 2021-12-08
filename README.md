@@ -1,28 +1,46 @@
 <h1>U-Cord <img width="30" height="30" src="https://image.flaticon.com/icons/png/512/2232/2232688.png"></h1>
 
-***
-<div align="center">
-   <img width="200" height="200" src="https://image.flaticon.com/icons/png/512/2620/2620993.png">
-   <img width="150" height="150" src="https://image.flaticon.com/icons/png/512/892/892662.png">
-   <img width="200" height="200" src="https://image.flaticon.com/icons/png/512/1043/1043701.png">
-</div>
+## Prerrequisitos
 
-***
-<div>
-   <h2> Resumen</h2>
-<p align="justify"> La idea del proyecto es crear una plataforma web que permita la comunicación entre usuarios en tiempo real.
-Al tener un objetivo netamente educativo un requisito principal para poder registrarse es el poseer un correo valido con un dominio terminado en edu.co (Para esta primera etapa del proyecto solo se aceptara @mail.escuelaing.edu.co y @escuelaing.edu.co).
-Preguntando en un primer momento si el usuario es profesor o estudiante, creando un perfil con diferentes caracteristicas según sea el caso.
-</p>
+-   [Git](https://git-scm.com/downloads) - Version Control System
+-   [Maven](https://maven.apache.org/download.cgi) - Dependency Management
+-   [Java 8](https://www.java.com/download/ie_manual.jsp) - Development Environment
+-   [Spring-Boot](https://spring.io/projects/spring-boot) - Framework Web
+-   [Intellij Idea](https://www.jetbrains.com/es-es/idea/download/) (Opcional)
 
-   <h2>Descripción</h2>
-<p align="justify"> U-Cord será una plataforma de comunicación entre usuarios en tiempo real en el que puedes hacer parte de grupos de estudio, tanto como tutor o aprendiz.
-Facilitando la comunicación incluso con aquellas personas con las que tu horario no es del todo compatible, aprovechando las nuevas formas de conectarse que se han adoptado últimamente.
-En la vida de los estudiantes muy seguramente se han generado dudas acerca de los temas vistos justo después de las clases o en horarios fuera de lo común, pero que no son capaces de preguntar ya sea por pena o que no se sepa a quien acudir, pues U-Cord es la solución a ese tipo de dudas, pues tanto profesores como otros estudiantes pueden aportar libremente al debate generado.
-</p>
+## Instrucciones de ejecución local
+1. Desde cmd clonar el repositorio
 
-  <h2> Para más información</h2>
+```git
+git clone https://github.com/LaEsquinaDeLaMesaRedonda/U-Cord.git
+```
 
+2. Ubicarse en la carpeta U-Cord y borraremos todas las dependencias y modulos que puedan exisitir de los binarios del proyecto.
+```maven
+mvn clean
+```
+
+3. Realizamos la compilación del proyecto
+```maven
+mvn package
+```
+
+4. Ejecutamos el proyecto
+```maven
+mvn spring-boot:run
+```
+
+<img style="height: 450px" src="https://github.com/LaEsquinaDeLaMesaRedonda/U-cord-Wiki/blob/main/img/ucord-mvnSpringBoot.jpg">
+
+## Para más información
 Para conocer más sobre este proyecto, ingrese a [wiki U-Cord](https://github.com/LaEsquinaDeLaMesaRedonda/U-Cord/wiki)
 
+## Despliague Heroku
+
 [![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://u-cord.herokuapp.com/)
+
+## Autores
+
+-   [Ana Gabriela Silva](https://github.com/gabrielaasilva).
+-   [Iván Camilo](https://github.com/Rincon10).
+-   [Leonardo Galeano](https://github.com/Ersocaut).
